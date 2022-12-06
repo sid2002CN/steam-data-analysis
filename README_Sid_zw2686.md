@@ -131,9 +131,7 @@ if __name__ == "__main__":
 
 The code for some unknown reason cannot be runed with spark-submit, although worked perfectly with local machine. The only way to run it on Peel is by using the "pyspark --deploy-mode client" and run it in the shell.
 
-###### Screen Shot of successful running on Peel:
 
-![priceChange](.\screenshots\sid_zw2686\priceChange.png)
 
 # Data analytic
 
@@ -179,13 +177,10 @@ The code for some unknown reason cannot be runed with spark-submit, although wor
 
 #### Detailed Steps on Local Test
 
-#### (Local Path: "final_code_drop\ana_code\sid_zw2686\genre_local"):
 
-​	Same as the following steps on peel.
+#### Detailed Steps on HDFS
 
-#### Detailed Steps on Peel
 
-#### (HDFS Path: "zw2686/project/genre/"):
 
 ##### 1. Generate the dataframe that is used for later Analytic
 
@@ -204,9 +199,6 @@ df = df.alias("a").join(df_temp.alias("b"),df.id == df_temp.id, "inner").select(
 df.show()
 ```
 
-###### Screenshot:
-
-![genre_step1](.\screenshots\sid_zw2686\genre_step1.png)
 
 ##### 2. Calculate the average price for each genre using explode()
 
@@ -226,9 +218,6 @@ df1 = df1.alias("a").join(df_temp2.alias("b"),df1.genre == df_temp2.id, "inner")
 df1.show()
 ```
 
-###### Screenshot:
-
-![genre_step2](.\screenshots\sid_zw2686\genre_step2.png)
 
 ##### 3.Calculate the median price for each genre using explode()
 
@@ -247,17 +236,9 @@ df2 = df2.alias("a").join(df_temp2.alias("b"),df2.genre == df_temp2.id, "inner")
 df2.show()
 ```
 
-###### Screenshot:
-
-![genre_step3](.\screenshots\sid_zw2686\genre_step3.png)
-
 ##### 4. Write to csv files
 
 ```python
 df1.write.options(header='True', delimiter=',').csv(hdfs_path + "genre_res/avg")
 df2.write.options(header='True', delimiter=',').csv(hdfs_path + "genre_res/med")
 ```
-
-###### Screenshot:
-
-![genre_ste4](.\screenshots\sid_zw2686\genre_step4.png)
