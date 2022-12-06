@@ -26,9 +26,3 @@ hdfs_path = "./project/discount/"
 ```
 
 line from code.
-
-<img src="..\..\screenshots\zack_ly1339\etl\step0_1_peel.py.png" style="zoom:67%;" />
-
-<img src="..\..\screenshots\zack_ly1339\etl\step2_peel.py.png" style="zoom:67%;" />
-
-<img src="..\..\screenshots\zack_ly1339\etl\succeed.png" style="zoom:67%;" />
