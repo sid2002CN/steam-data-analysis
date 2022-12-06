@@ -5,9 +5,6 @@ interative output of etl process is in
 With some explaination.
 
 
-
-My NetId: ly1339
-
 ETL Job files:
 
 1. step0_1_peel.py
